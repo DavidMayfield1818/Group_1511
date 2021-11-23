@@ -30,13 +30,13 @@ public class CharacterMovement : MonoBehaviour
     }
 
     private void MouseClick() {
-        Vector2 mousePos = mouseInput.Mouse.MousePosition.ReadValue<Vector2>();
+        Vector2 mousePos = (mouseInput.Mouse.MousePosition.ReadValue<Vector2>());
         mousePos = Camera.main.ScreenToWorldPoint(mousePos);
         // make sure we are clicking the cell
         Vector3Int gridPos = map.WorldToCell(mousePos);
         //if (map.HasTile(gridPos)){
-        destination = mousePos;
-        //Debug.Log(destination);
+        destination = map.GetCellCenterWorld(gridPos);
+        Debug.Log(destination);
         //}
     }
 
