@@ -8,6 +8,8 @@ public class CharacterMovement : MonoBehaviour
     public Tilemap map;
     MouseInput mouseInput;
     private Vector3 destination;
+    public bool curTurn = false;
+    public bool takenTurn = false;
     [SerializeField] private float moveSpeed = 5.0f;
 
     private void Awake() {
@@ -30,14 +32,20 @@ public class CharacterMovement : MonoBehaviour
     }
 
     private void MouseClick() {
-        Vector2 mousePos = (mouseInput.Mouse.MousePosition.ReadValue<Vector2>());
-        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-        // make sure we are clicking the cell
-        Vector3Int gridPos = map.WorldToCell(mousePos);
-        //if (map.HasTile(gridPos)){
-        destination = map.GetCellCenterWorld(gridPos);
-        Debug.Log(destination);
-        //}
+        if(curTurn)
+        {
+            Vector2 mousePos = (mouseInput.Mouse.MousePosition.ReadValue<Vector2>());
+            mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+            // make sure we are clicking the cell
+            Vector3Int gridPos = map.WorldToCell(mousePos);
+            //if (map.HasTile(gridPos)){
+            destination = map.GetCellCenterWorld(gridPos);
+            //Debug.Log(destination);
+            //}
+            if (Vector3.Distance(transform.position, destination) > 0.1f && Vector3.Distance(transform.position, destination) < 3.0f){
+                takenTurn = true;
+            }
+        }
     }
 
     // Update is called once per frame
@@ -46,6 +54,5 @@ public class CharacterMovement : MonoBehaviour
         if (Vector3.Distance(transform.position, destination) > 0.1f && Vector3.Distance(transform.position, destination) < 3.0f){
             transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
         }
-       // Debug.Log(mousePos);
     }
 }
