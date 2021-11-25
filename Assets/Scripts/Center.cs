@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class Center : MonoBehaviour
 {
+
+
     public float moves = 4.0f;
     public bool hasMoved = false;
     
@@ -16,6 +18,8 @@ public class Center : MonoBehaviour
     public float offReboundChance;
     public float baseDefReboundChance = 0.90f;
     public float defReboundChance;
+
+    public float stealChance = 0.20f;
 
     public void movingShot(){
         if (hasMoved == true){

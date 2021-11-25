@@ -4,7 +4,8 @@ using UnityEngine;
 
 public class Guard : MonoBehaviour
 {
-    // Start is called before the first frame update
+    public GameObject enemyPlayer;
+
     public float moves = 4.0f;
     public bool hasMoved = false;
     
@@ -18,6 +19,8 @@ public class Guard : MonoBehaviour
     public float baseDefReboundChance = 0.80f;
     public float defReboundChance;
 
+    public float stealChance = 0.30f;
+
     public void movingShot(){
         if (hasMoved == true){
             shotChance = baseShotChance/2;
@@ -28,5 +31,12 @@ public class Guard : MonoBehaviour
         if(hasMoved == true){
             passChance = basePassChance - 0.10f;
         }
+    }
+
+    public void steal(){
+        //if this player is one space from enemyPlayer
+        //run stealchance
+        //if successful this player has possession of the ball
+        //maybe resets movement?
     }
 }

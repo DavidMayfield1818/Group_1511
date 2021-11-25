@@ -17,6 +17,8 @@ public class Forward : MonoBehaviour
     public float baseDefReboundChance = 0.80f;
     public float defReboundChance;
 
+    public float stealChance = 0.20f;
+
     public void movingShot(){
         if (hasMoved == true){
             shotChance = baseShotChance/2;
