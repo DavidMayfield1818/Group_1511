@@ -7,6 +7,9 @@ public class ActiveCharacter : MonoBehaviour
     public CharacterMovement CharacterA;
     public CharacterMovement CharacterB;
     public CharacterMovement CharacterC;
+    public CharacterMovement CharacterD;
+    public CharacterMovement CharacterE;
+    public CharacterMovement CharacterF;
 
     private state State;
     private state NextState;
@@ -17,6 +20,9 @@ public class ActiveCharacter : MonoBehaviour
         TurnA,
         TurnB,
         TurnC,
+        TurnD,
+        TurnE,
+        TurnF,
     }
 
     // Start is called before the first frame update
@@ -72,8 +78,23 @@ public class ActiveCharacter : MonoBehaviour
         }
         else if(State == state.TurnC)
         {
-            NextState = state.TurnA;
+            NextState = state.TurnD;
             curPlayer = CharacterC;
+        }
+        else if(State == state.TurnD)
+        {
+            NextState = state.TurnE;
+            curPlayer = CharacterD;
+        }
+        else if(State == state.TurnE)
+        {
+            NextState = state.TurnF;
+            curPlayer = CharacterE;
+        }
+        else if(State == state.TurnF)
+        {
+            NextState = state.TurnA;
+            curPlayer = CharacterF;
         }
         //Debug.Log(State);
     }
