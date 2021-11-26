@@ -12,6 +12,8 @@ public class CharacterMovement : MonoBehaviour
     public bool takenTurn = false;
     [SerializeField] private float moveSpeed = 5.0f;
 
+    // public GameObject playerClass;  
+
 
     private void Awake() {
         mouseInput = new MouseInput();
@@ -43,9 +45,27 @@ public class CharacterMovement : MonoBehaviour
             destination = map.GetCellCenterWorld(gridPos);
             //Debug.Log(destination);
             //}
+            
+            //change the hasMoved variable to true
+            switch(gameObject.tag){
+                case guard:
+                    Guard.hasMoved = true;
+                    break;
+                case forward:
+                    Forward.hasMoved = true;
+                    break;
+                case center:
+                    Center.hasMoved = true;
+                    break;    
+            }
+            
             if (Vector3.Distance(transform.position, destination) > 0.1f && Vector3.Distance(transform.position, destination) < 3.0f){
                 takenTurn = true;
+
             }
+
+
+
         }
     }
 
