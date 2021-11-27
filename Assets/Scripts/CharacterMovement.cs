@@ -47,6 +47,7 @@ public class CharacterMovement : MonoBehaviour
             //}
             
             //change the hasMoved variable to true
+            /*
             switch(gameObject.tag){
                 case guard:
                     Guard.hasMoved = true;
@@ -57,7 +58,7 @@ public class CharacterMovement : MonoBehaviour
                 case center:
                     Center.hasMoved = true;
                     break;    
-            }
+            }*/
             
             if (Vector3.Distance(transform.position, destination) > 0.1f && Vector3.Distance(transform.position, destination) < 3.0f){
                 takenTurn = true;

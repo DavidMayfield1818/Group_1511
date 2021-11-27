@@ -40,6 +40,7 @@ public class ActiveCharacter : MonoBehaviour
             Deactivate(curPlayer);
 
             //reset hasMoved variable
+            /*
             switch(gameObject.tag){
                 case guard:
                     Guard.hasMoved = false;
@@ -50,7 +51,7 @@ public class ActiveCharacter : MonoBehaviour
                 case center:
                     Center.hasMoved = false;
                     break;    
-            }
+            }*/
 
             updateState(NextState);
             Activate(curPlayer);
