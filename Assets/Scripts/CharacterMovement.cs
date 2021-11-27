@@ -75,7 +75,7 @@ public class CharacterMovement : MonoBehaviour
         var distance = Vector3.Distance(transform.position, hoop.position);
         // print(distance);
         //check if the current player is close enough to shoot. (4.5 is right around the midpoint between the half court and the 3 point line) 
-        if(distance < 4.5 ){
+        if(distance < 4.5f ){
             return true;
         }
         else{
