@@ -38,6 +38,21 @@ public class ActiveCharacter : MonoBehaviour
         if(CheckTaken(curPlayer))
         {
             Deactivate(curPlayer);
+
+            //reset hasMoved variable
+            /*
+            switch(gameObject.tag){
+                case guard:
+                    Guard.hasMoved = false;
+                    break;
+                case forward:
+                    Forward.hasMoved = false;
+                    break;
+                case center:
+                    Center.hasMoved = false;
+                    break;    
+            }*/
+
             updateState(NextState);
             Activate(curPlayer);
         }
