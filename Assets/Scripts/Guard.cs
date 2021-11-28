@@ -51,6 +51,19 @@ public class Guard : MonoBehaviour
     }
 
     public void distancetoHoop(){
+        var hoopDistance = Vector3.Distance(transform.position, hoop.position);
+        if (hoopDistance >= 3.5){
+            shotChance = 40;
+        }
+        else if (hoopDistance < 1.5f){
+            shotChance = baseShotChance;
+        }
+        else {
+            while(hoopDistance > 0.9f){
+                hoopDistance -= 1.0f;
+                shotChance = shotChance - 15;
+            }
+        }
         //40% at the 3 point line (4 hexes distance)
         //80% at the hoop (layup) if 1 hex away from hoop
         //80%-15*(amount of hexes away from hoop)
