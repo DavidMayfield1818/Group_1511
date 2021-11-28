@@ -21,6 +21,8 @@ public class Guard : MonoBehaviour
 
     public int stealChance = 30;
 
+    public Transform hoop;
+
     public void movingShot(){
         if (hasMoved == true){
             shotChance = baseShotChance/2;
@@ -36,18 +38,22 @@ public class Guard : MonoBehaviour
 
     public void steal(){
         // if this player is one hex from enemyPlayer
-        int randVal;
-        randVal = Random.Range(0, 100);
-        if (randVal < stealChance){
-            //this player has possession of the ball
-            // Debug.log("success");
+        var hoopDistance = Vector3.Distance(transform.position, hoop.position);
+
+        if (hoopDistance < 1.5f){
+            int randVal;
+            randVal = Random.Range(0, 100);
+            if (randVal < stealChance){
+                //this player has possession of the ball
+                // Debug.log("success");
+            }
         }
     }
 
     public void distancetoHoop(){
         //40% at the 3 point line (4 hexes distance)
-        //80% at the hoop (layup)
-        //80%-8*(amount of hexes away from hoop)
+        //80% at the hoop (layup) if 1 hex away from hoop
+        //80%-15*(amount of hexes away from hoop)
         //shotChance = finishedcalculation
     }
 }
