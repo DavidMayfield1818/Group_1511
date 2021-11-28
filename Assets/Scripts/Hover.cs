@@ -5,20 +5,24 @@ using UnityEngine;
 public class Hover : MonoBehaviour
 {
     // Start is called before the first frame update
-    public GameObject text;
-    void Start(){
+      public GameObject text;
+      public GameObject background;
+    void Awake(){
         Debug.Log("What's up");
-        // text.SetActive(false);
+        text.SetActive(false);
+        background.SetActive(false);
     }
     public void OnMouseOver()
     {
         text.SetActive(true);
-        print("This is over the object");
-        Debug.Log("This is over the object");
+        background.SetActive(true);
+        PercentHover.ShowHover_Static(90);
+     
     }
 
     public void OnMouseExit(){
         text.SetActive(false);
-        print("This is no longer on the object");
+        background.SetActive(false);
+
     }
 }
