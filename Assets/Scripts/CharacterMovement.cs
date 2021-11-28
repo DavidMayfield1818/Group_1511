@@ -40,12 +40,22 @@ public class CharacterMovement : MonoBehaviour
         {
             Vector2 mousePos = (mouseInput.Mouse.MousePosition.ReadValue<Vector2>());
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
-            // make sure we are clicking the cell
-            Vector3Int gridPos = map.WorldToCell(mousePos);
-            //if (map.HasTile(gridPos)){
-            destination = map.GetCellCenterWorld(gridPos);
-            //Debug.Log(destination);
-            //}
+            Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+            RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+            // hit.collider store rigidbody and gameobject clicked 
+            if (hit.collider != null){
+                Debug.Log("clicked player");
+            }
+
+
+            if (hit.collider == null){
+                Debug.Log("clicked to move");
+                // make sure we are clicking the cell
+                Vector3Int gridPos = map.WorldToCell(mousePos);
+                destination = map.GetCellCenterWorld(gridPos);
+            }
+            
+            
             
             //change the hasMoved variable to true
             /*

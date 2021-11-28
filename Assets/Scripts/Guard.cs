@@ -21,7 +21,7 @@ public class Guard : MonoBehaviour
 
     public int stealChance = 30;
 
-    public static Random rand = new Random();
+    //public static Random rand = new Random();
 
     public void movingShot(){
         if (hasMoved == true){
@@ -35,7 +35,7 @@ public class Guard : MonoBehaviour
             passChance = basePassChance - 10;
         }
     }
-
+/*
     public void steal(){
         //if this player is one hex from enemyPlayer
         private float randVal;
@@ -50,5 +50,5 @@ public class Guard : MonoBehaviour
         //80% at the hoop (layup)
         //80%-8*(amount of hexes away from hoop)
         //shotChance = finishedcalculation
-    }
+    }*/
 }
