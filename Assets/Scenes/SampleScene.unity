@@ -170,13 +170,13 @@ Camera:
     serializedVersion: 2
     x: 0
     y: 0
-    width: 1
+    width: 0.705
     height: 1
   near clip plane: 0.3
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 3.9754355
+  orthographic size: 6.2911367
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -200,7 +200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -10}
+  m_LocalPosition: {x: 0.09, y: 1.32, z: -10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
@@ -323,12 +323,7 @@ MonoBehaviour:
   curTurn: 0
   takenTurn: 0
   moveSpeed: 5
-  Player1: {fileID: 549900401}
-  Player2: {fileID: 1558457787}
-  Player3: {fileID: 708202315}
-  Player4: {fileID: 2087999630}
-  Player5: {fileID: 2036461237}
-  Player6: {fileID: 1736131474}
+  hoop: {fileID: 0}
 --- !u!50 &549900406
 Rigidbody2D:
   serializedVersion: 4
@@ -386,12 +381,7 @@ MonoBehaviour:
   curTurn: 0
   takenTurn: 0
   moveSpeed: 5
-  Player1: {fileID: 549900401}
-  Player2: {fileID: 1558457787}
-  Player3: {fileID: 708202315}
-  Player4: {fileID: 2087999630}
-  Player5: {fileID: 2036461237}
-  Player6: {fileID: 1736131474}
+  hoop: {fileID: 0}
 --- !u!50 &708202317
 Rigidbody2D:
   serializedVersion: 4
@@ -780,12 +770,7 @@ MonoBehaviour:
   curTurn: 0
   takenTurn: 0
   moveSpeed: 5
-  Player1: {fileID: 549900401}
-  Player2: {fileID: 1558457787}
-  Player3: {fileID: 708202315}
-  Player4: {fileID: 2087999630}
-  Player5: {fileID: 2036461237}
-  Player6: {fileID: 1736131474}
+  hoop: {fileID: 0}
 --- !u!50 &1558457789
 Rigidbody2D:
   serializedVersion: 4
@@ -945,12 +930,7 @@ MonoBehaviour:
   curTurn: 0
   takenTurn: 0
   moveSpeed: 5
-  Player1: {fileID: 549900401}
-  Player2: {fileID: 1558457787}
-  Player3: {fileID: 708202315}
-  Player4: {fileID: 2087999630}
-  Player5: {fileID: 2036461237}
-  Player6: {fileID: 1736131474}
+  hoop: {fileID: 0}
 --- !u!70 &1736131477
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1171,12 +1151,7 @@ MonoBehaviour:
   curTurn: 0
   takenTurn: 0
   moveSpeed: 5
-  Player1: {fileID: 549900401}
-  Player2: {fileID: 1558457787}
-  Player3: {fileID: 708202315}
-  Player4: {fileID: 2087999630}
-  Player5: {fileID: 2036461237}
-  Player6: {fileID: 1736131474}
+  hoop: {fileID: 0}
 --- !u!70 &2036461240
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -1315,12 +1290,7 @@ MonoBehaviour:
   curTurn: 0
   takenTurn: 0
   moveSpeed: 5
-  Player1: {fileID: 549900401}
-  Player2: {fileID: 1558457787}
-  Player3: {fileID: 708202315}
-  Player4: {fileID: 2087999630}
-  Player5: {fileID: 2036461237}
-  Player6: {fileID: 1736131474}
+  hoop: {fileID: 0}
 --- !u!70 &2087999633
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
