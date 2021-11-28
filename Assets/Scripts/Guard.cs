@@ -50,7 +50,7 @@ public class Guard : MonoBehaviour
         }
     }
 
-    public void distancetoHoop(){
+    public void calculateShotChance(){
         var hoopDistance = Vector3.Distance(transform.position, hoop.position);
         if (hoopDistance >= 3.5){
             shotChance = 40;
