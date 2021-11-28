@@ -77,6 +77,9 @@ public class ActiveCharacter : MonoBehaviour
         }
         return false;
     }
+    public CharacterMovement getActiveCharacter(){
+        return curPlayer;
+    }
 
     void updateState(state newState)
     {
