@@ -85,7 +85,7 @@ public class CharacterMovement : MonoBehaviour
                     break;    
             }*/
             
-            if (Vector3.Distance(transform.position, destination) > 0.1f && Vector3.Distance(transform.position, destination) < 3.0f){
+            if (Vector3.Distance(transform.position, destination) > 0.1f && Vector3.Distance(transform.position, destination) < 3.5f){
                 takenTurn = true;
 
             }
@@ -99,7 +99,7 @@ public class CharacterMovement : MonoBehaviour
     private bool canShoot(){
         var distance = Vector3.Distance(transform.position, hoop.position);
         // print(distance);
-        //check if the current player is close enough to shoot. (4.5 is right around the midpoint between the half court and the 3 point line) 
+        //check if the current player is close enough to shoot. (4.5 is right around the midpoint between the half court and the 3 point line)
         if(distance < 4.5f ){
             return true;
         }
@@ -114,7 +114,7 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
-        if (Vector3.Distance(transform.position, destination) > 0.1f && Vector3.Distance(transform.position, destination) < 3.0f){
+        if (Vector3.Distance(transform.position, destination) > 0.1f && Vector3.Distance(transform.position, destination) < 3.5f){
             // check if destination has a unit on the tile already before moving
             transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
             // print(canShoot());
@@ -122,8 +122,10 @@ public class CharacterMovement : MonoBehaviour
         }
         if (curTurn){
             this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+            this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
         } else {
             this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
         }
 
         if (this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder == 0){
