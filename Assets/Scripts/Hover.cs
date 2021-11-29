@@ -8,7 +8,6 @@ public class Hover : MonoBehaviour
       public GameObject text;
       public GameObject background;
     void Awake(){
-        Debug.Log("What's up");
         text.SetActive(false);
         background.SetActive(false);
     }
@@ -17,7 +16,6 @@ public class Hover : MonoBehaviour
         text.SetActive(true);
         background.SetActive(true);
         PercentHover.ShowHover_Static(90);
-     
     }
 
     public void OnMouseExit(){
