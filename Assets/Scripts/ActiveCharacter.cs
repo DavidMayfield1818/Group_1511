@@ -40,7 +40,7 @@ public class ActiveCharacter : MonoBehaviour
         // will remove this once selection is done
         // updateState(state.TurnA);
         // Activate(curPlayer);
-        // curPlayer.hasBall = true;
+        CharacterC.hasBall = true;
         
     }
 
