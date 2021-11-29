@@ -49,6 +49,8 @@ public class CharacterMovement : MonoBehaviour
             // hit.collider store rigidbody and gameobject clicked 
             if (hit.collider != null){
                 Debug.Log("clicked player");
+                hit.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+                hasBall = true;
             }
 
 
@@ -119,7 +121,7 @@ public class CharacterMovement : MonoBehaviour
         if (hasBall){
             this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
         } else {
-            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+            this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }
