@@ -759,7 +759,7 @@ RectTransform:
   m_GameObject: {fileID: 254055022}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.3238579, y: 1.3238579, z: 1.3238579}
   m_Children:
   - {fileID: 1738322946}
   - {fileID: 3616103}
@@ -772,7 +772,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 160}
+  m_AnchoredPosition: {x: 0, y: 297}
   m_SizeDelta: {x: 839.78, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &254055024
@@ -1096,7 +1096,7 @@ Camera:
   far clip plane: 1000
   field of view: 60
   orthographic: 1
-  orthographic size: 6.908671
+  orthographic size: 5.5
   m_Depth: -1
   m_CullingMask:
     serializedVersion: 2
@@ -1120,7 +1120,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 519420028}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -0.025, y: 0.6, z: 0}
+  m_LocalPosition: {x: 0, y: -0.84, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 226012508}
@@ -1329,7 +1329,6 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 1
-  playerNumber: 0
   hoop: {fileID: 2071961877}
 --- !u!50 &549900406
 Rigidbody2D:
@@ -1499,7 +1498,6 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 1
-  playerNumber: 2
   hoop: {fileID: 2071961877}
 --- !u!50 &708202317
 Rigidbody2D:
@@ -2401,7 +2399,7 @@ RectTransform:
   m_GameObject: {fileID: 910305882}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2979, y: 1.2979, z: 1.2979}
   m_Children:
   - {fileID: 914061413}
   - {fileID: 528574308}
@@ -2410,7 +2408,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 315, y: -45}
+  m_AnchoredPosition: {x: 315, y: -18.400051}
   m_SizeDelta: {x: 151.67, y: 36.62}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &910305884
@@ -3564,7 +3562,7 @@ RectTransform:
   m_GameObject: {fileID: 1524577614}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 1.2979, y: 1.2979, z: 1.2979}
   m_Children:
   - {fileID: 1560630050}
   - {fileID: 889277395}
@@ -3573,7 +3571,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: -348.7, y: -49.599983}
+  m_AnchoredPosition: {x: -348.7, y: -23}
   m_SizeDelta: {x: 100, y: 97.44}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!222 &1524577616
@@ -3623,7 +3621,6 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 1
-  playerNumber: 1
   hoop: {fileID: 2071961877}
 --- !u!50 &1558457789
 Rigidbody2D:
@@ -3892,7 +3889,6 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 2
-  playerNumber: 5
   hoop: {fileID: 814664237}
 --- !u!70 &1736131477
 CapsuleCollider2D:
@@ -4488,7 +4484,6 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 2
-  playerNumber: 4
   hoop: {fileID: 814664237}
 --- !u!70 &2036461240
 CapsuleCollider2D:
@@ -4805,7 +4800,6 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 2
-  playerNumber: 3
   hoop: {fileID: 814664237}
 --- !u!70 &2087999633
 CapsuleCollider2D:
