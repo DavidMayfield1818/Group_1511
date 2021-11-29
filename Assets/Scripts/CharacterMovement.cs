@@ -19,8 +19,8 @@ public class CharacterMovement : MonoBehaviour
 
     private void Awake() {
         mouseInput = new MouseInput();
-        this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
-        this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+        
+        
     }
 
     private void OnEnable(){
@@ -34,6 +34,8 @@ public class CharacterMovement : MonoBehaviour
     // Start is called before the first frame update
     void Start()
     {
+        this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        //this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
         destination = transform.position;
         mouseInput.Mouse.MouseClick.performed += _ => MouseClick();
     }
@@ -48,9 +50,15 @@ public class CharacterMovement : MonoBehaviour
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
             // hit.collider store rigidbody and gameobject clicked 
             if (hit.collider != null){
+                if(hasBall){
+                    hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
+                    Debug.Log(hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder);
+                    this.hasBall = false;
+                    this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
+                }
                 Debug.Log("clicked player");
-                hit.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
-                hasBall = true;
+
+                //hasBall = true;
             }
 
 
@@ -118,10 +126,18 @@ public class CharacterMovement : MonoBehaviour
             this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
 
+        if (this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder == 0){
+            hasBall = true;
+        } 
+
         if (hasBall){
-            this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
+            this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
         } else {
-            this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
+            this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
+        }
+
+        if(GetComponent<SpriteRenderer>().enabled){
+            //this.hasBall = true;
         }
     }
 }

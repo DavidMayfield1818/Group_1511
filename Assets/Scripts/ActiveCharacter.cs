@@ -30,6 +30,8 @@ public class ActiveCharacter : MonoBehaviour
     {
         updateState(state.TurnA);
         Activate(curPlayer);
+        curPlayer.hasBall = true;
+
     }
 
     // Update is called once per frame
