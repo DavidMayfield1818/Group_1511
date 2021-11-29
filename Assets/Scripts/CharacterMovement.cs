@@ -10,6 +10,7 @@ public class CharacterMovement : MonoBehaviour
     private Vector3 destination;
     public bool curTurn = false;
     public bool takenTurn = false;
+    public bool hasBall = false;
     [SerializeField] private float moveSpeed = 5.0f;
 
     public Transform hoop; 
@@ -19,6 +20,7 @@ public class CharacterMovement : MonoBehaviour
     private void Awake() {
         mouseInput = new MouseInput();
         this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void OnEnable(){
@@ -110,6 +112,12 @@ public class CharacterMovement : MonoBehaviour
         }
         if (curTurn){
             this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        } else {
+            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        if (hasBall){
+            this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().enabled = true;
         } else {
             this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
