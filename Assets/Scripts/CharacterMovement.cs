@@ -13,6 +13,9 @@ public class CharacterMovement : MonoBehaviour
     public bool hasBall = false;
     [SerializeField] private float moveSpeed = 5.0f;
     public float team;
+    // public float enemyTeam;
+
+    // public bool blueTeam;
 
     public Transform hoop; 
     // public GameObject playerClass;  
@@ -56,8 +59,12 @@ public class CharacterMovement : MonoBehaviour
                     Debug.Log(hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder);
                     this.hasBall = false;
                     this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
+                    Debug.Log("clicked player");
                 }
-                Debug.Log("clicked player");
+                else {
+                    steal();
+                }
+
 
                 //hasBall = true;
             }
@@ -95,6 +102,25 @@ public class CharacterMovement : MonoBehaviour
 
         }
         
+    }
+
+    public void steal(){
+        // if this player is one tile from enemyPlayer
+        // var enemyDistance = Vector3.Distance(transform.position, enemyPlayer1.transform.position);
+
+        //
+        // if (enemyDistance < 1.5f){
+            int randVal;
+            randVal = Random.Range(0, 100);
+            if (randVal < 30){
+                //this player has possession of the ball
+                Debug.Log("stolen");
+                hasBall = true;
+            }
+            else {
+                Debug.Log("failed to steal");
+            }
+        // }
     }
 
     private bool canShoot(){

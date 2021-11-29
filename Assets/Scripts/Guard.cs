@@ -4,9 +4,12 @@ using UnityEngine;
 
 public class Guard : MonoBehaviour
 {
-    public GameObject enemyPlayer;
+    // public GameObject enemyPlayer1;
+    // public GameObject enemyPlayer2;
+    // public GameObject enemyPlayer3;
+    // public bool BlueTeam;
 
-    public int moves = 3;
+    // public int moves = 3;
     public static bool hasMoved = false;
     
     public int baseShotChance = 80;
@@ -36,26 +39,30 @@ public class Guard : MonoBehaviour
         }
     }
 
-    public void steal(){
-        // if this player is one hex from enemyPlayer
-        var hoopDistance = Vector3.Distance(transform.position, hoop.position);
+    // public void steal(){
+    //     // if this player is one hex from enemyPlayer
+    //     var enemyDistance = Vector3.Distance(transform.position, enemyPlayer1.transform.position);
 
-        if (hoopDistance < 1.5f){
-            int randVal;
-            randVal = Random.Range(0, 100);
-            if (randVal < stealChance){
-                //this player has possession of the ball
-                // Debug.log("success");
-            }
-        }
-    }
+    //     //
+    //     if (enemyDistance < 1.5f){
+    //         int randVal;
+    //         randVal = Random.Range(0, 100);
+    //         if (randVal < stealChance){
+    //             //this player has possession of the ball
+    //             Debug.Log("success");
+    //         }
+    //         else {
+    //             Debug.Log("fail");
+    //         }
+    //     }
+    // }
 
     public void calculateShotChance(){
         var hoopDistance = Vector3.Distance(transform.position, hoop.position);
         if (hoopDistance >= 3.5){
             shotChance = 40;
         }
-        else if (hoopDistance < 1.5f){
+        else if (hoopDistance < 1.5f){ //layup
             shotChance = baseShotChance;
         }
         else {
