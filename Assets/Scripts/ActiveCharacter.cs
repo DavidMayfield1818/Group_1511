@@ -50,6 +50,7 @@ public class ActiveCharacter : MonoBehaviour
         // need to set a new player
         if(curPlayer == null)
         {
+            mouseInput.Enable();
             if(CharacterA.takenTurn && CharacterB.takenTurn && CharacterC.takenTurn){
                 Turn = 2;
                 CharacterA.takenTurn = false;
@@ -67,31 +68,36 @@ public class ActiveCharacter : MonoBehaviour
             mouseInput.Mouse.MouseClick.performed += _ => MouseClick();
         }
         // if has a player selected wait till turn is done
-        else if(CheckTaken(curPlayer))
+        else
         {
-            Deactivate(curPlayer);
-            curPlayer = null;
+            mouseInput.Disable();
+            if(CheckTaken(curPlayer))
+            {
+                
+                Deactivate(curPlayer);
+                curPlayer = null;
 
-            // will add this once player selection is done
-            // curPlayer = null;
+                // will add this once player selection is done
+                // curPlayer = null;
 
-            //reset hasMoved variable
-            /*
-            switch(gameObject.tag){
-                case guard:
-                    Guard.hasMoved = false;
-                    break;
-                case forward:
-                    Forward.hasMoved = false;
-                    break;
-                case center:
-                    Center.hasMoved = false;
-                    break;    
-            }*/
+                //reset hasMoved variable
+                /*
+                switch(gameObject.tag){
+                    case guard:
+                        Guard.hasMoved = false;
+                        break;
+                    case forward:
+                        Forward.hasMoved = false;
+                        break;
+                    case center:
+                        Center.hasMoved = false;
+                        break;    
+                }*/
 
-            //updateState(NextState); // will remove this once player selection is implemented
-            //Activate(curPlayer);    // will remove this once player selection is implemented
-        }
+                //updateState(NextState); // will remove this once player selection is implemented
+                //Activate(curPlayer);    // will remove this once player selection is implemented
+            }
+        } 
 
     }
 
