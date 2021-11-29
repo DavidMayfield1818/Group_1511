@@ -18,6 +18,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Awake() {
         mouseInput = new MouseInput();
+        this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
     }
 
     private void OnEnable(){
@@ -38,6 +39,7 @@ public class CharacterMovement : MonoBehaviour
     private void MouseClick() {
         if(curTurn)
         {
+            //this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             Vector2 mousePos = (mouseInput.Mouse.MousePosition.ReadValue<Vector2>());
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
@@ -79,6 +81,7 @@ public class CharacterMovement : MonoBehaviour
 
 
         }
+        
     }
 
     private bool canShoot(){
@@ -104,6 +107,11 @@ public class CharacterMovement : MonoBehaviour
             transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
             // print(canShoot());
             
+        }
+        if (curTurn){
+            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        } else {
+            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
     }
 }
