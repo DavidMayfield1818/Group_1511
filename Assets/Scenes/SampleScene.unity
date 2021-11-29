@@ -1328,6 +1328,8 @@ MonoBehaviour:
   takenTurn: 0
   hasBall: 0
   moveSpeed: 5
+  team: 1
+  playerNumber: 0
   hoop: {fileID: 2071961877}
 --- !u!50 &549900406
 Rigidbody2D:
@@ -1496,6 +1498,8 @@ MonoBehaviour:
   takenTurn: 0
   hasBall: 0
   moveSpeed: 5
+  team: 1
+  playerNumber: 2
   hoop: {fileID: 2071961877}
 --- !u!50 &708202317
 Rigidbody2D:
@@ -3618,6 +3622,8 @@ MonoBehaviour:
   takenTurn: 0
   hasBall: 0
   moveSpeed: 5
+  team: 1
+  playerNumber: 1
   hoop: {fileID: 2071961877}
 --- !u!50 &1558457789
 Rigidbody2D:
@@ -3885,6 +3891,8 @@ MonoBehaviour:
   takenTurn: 0
   hasBall: 0
   moveSpeed: 5
+  team: 2
+  playerNumber: 5
   hoop: {fileID: 814664237}
 --- !u!70 &1736131477
 CapsuleCollider2D:
@@ -4479,6 +4487,8 @@ MonoBehaviour:
   takenTurn: 0
   hasBall: 0
   moveSpeed: 5
+  team: 2
+  playerNumber: 4
   hoop: {fileID: 814664237}
 --- !u!70 &2036461240
 CapsuleCollider2D:
@@ -4794,6 +4804,8 @@ MonoBehaviour:
   takenTurn: 0
   hasBall: 0
   moveSpeed: 5
+  team: 2
+  playerNumber: 3
   hoop: {fileID: 814664237}
 --- !u!70 &2087999633
 CapsuleCollider2D:

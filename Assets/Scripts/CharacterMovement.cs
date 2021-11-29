@@ -12,6 +12,7 @@ public class CharacterMovement : MonoBehaviour
     public bool takenTurn = false;
     public bool hasBall = false;
     [SerializeField] private float moveSpeed = 5.0f;
+    public float team;
 
     public Transform hoop; 
     // public GameObject playerClass;  

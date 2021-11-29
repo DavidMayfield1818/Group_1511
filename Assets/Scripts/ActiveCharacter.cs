@@ -11,10 +11,14 @@ public class ActiveCharacter : MonoBehaviour
     public CharacterMovement CharacterE;
     public CharacterMovement CharacterF;
 
+    MouseInput mouseInput;
+
     private state State;
     private state NextState;
 
-    private CharacterMovement curPlayer;
+    private float Turn = 1;
+
+    private CharacterMovement curPlayer = null;
 
     private enum state{
         TurnA,
@@ -25,21 +29,51 @@ public class ActiveCharacter : MonoBehaviour
         TurnF,
     }
 
+    private void Awake() {
+        mouseInput = new MouseInput();
+        mouseInput.Enable();
+    }
+
     // Start is called before the first frame update
     void Start()
     {
-        updateState(state.TurnA);
-        Activate(curPlayer);
-        curPlayer.hasBall = true;
-
+        // will remove this once selection is done
+        // updateState(state.TurnA);
+        // Activate(curPlayer);
+        // curPlayer.hasBall = true;
+        
     }
 
     // Update is called once per frame
     void Update()
     {
-        if(CheckTaken(curPlayer))
+        // need to set a new player
+        if(curPlayer == null)
+        {
+            if(CharacterA.takenTurn && CharacterB.takenTurn && CharacterC.takenTurn){
+                Turn = 2;
+                CharacterA.takenTurn = false;
+                CharacterB.takenTurn = false;
+                CharacterC.takenTurn = false;
+            }
+
+            if(CharacterD.takenTurn && CharacterE.takenTurn && CharacterF.takenTurn){
+                Turn = 1;
+                CharacterD.takenTurn = false;
+                CharacterE.takenTurn = false;
+                CharacterF.takenTurn = false;
+            }
+
+            mouseInput.Mouse.MouseClick.performed += _ => MouseClick();
+        }
+        // if has a player selected wait till turn is done
+        else if(CheckTaken(curPlayer))
         {
             Deactivate(curPlayer);
+            curPlayer = null;
+
+            // will add this once player selection is done
+            // curPlayer = null;
 
             //reset hasMoved variable
             /*
@@ -55,8 +89,8 @@ public class ActiveCharacter : MonoBehaviour
                     break;    
             }*/
 
-            updateState(NextState);
-            Activate(curPlayer);
+            //updateState(NextState); // will remove this once player selection is implemented
+            //Activate(curPlayer);    // will remove this once player selection is implemented
         }
 
     }
@@ -69,7 +103,6 @@ public class ActiveCharacter : MonoBehaviour
     void Deactivate(CharacterMovement Char)
     {
         Char.curTurn = false;
-        Char.takenTurn = false;
     }
 
     bool CheckTaken(CharacterMovement Char)
@@ -83,39 +116,26 @@ public class ActiveCharacter : MonoBehaviour
         return curPlayer;
     }
 
-    void updateState(state newState)
-    {
-        State = newState;
-        if(State == state.TurnA)
-        {
-            NextState = state.TurnB;
-            curPlayer = CharacterA;
+    
+    private void MouseClick() {
+        //this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        Vector2 mousePos = (mouseInput.Mouse.MousePosition.ReadValue<Vector2>());
+        mousePos = Camera.main.ScreenToWorldPoint(mousePos);
+        Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
+        RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
+        // hit.collider store rigidbody and gameobject clicked 
+        if (hit.collider != null){
+            if(hit.transform.GetComponent<CharacterMovement>().team == Turn){
+                //Debug.Log("correct team");
+                if(!hit.transform.GetComponent<CharacterMovement>().takenTurn)
+                {
+                    //Debug.Log("available");
+                    hit.transform.GetComponent<CharacterMovement>().curTurn = true;
+                    curPlayer = hit.transform.GetComponent<CharacterMovement>();
+                }
+                
+            }
+            //Debug.Log("clicked player");
         }
-        else if(State == state.TurnB)
-        {
-            NextState = state.TurnC;
-            curPlayer = CharacterB;
-        }
-        else if(State == state.TurnC)
-        {
-            NextState = state.TurnD;
-            curPlayer = CharacterC;
-        }
-        else if(State == state.TurnD)
-        {
-            NextState = state.TurnE;
-            curPlayer = CharacterD;
-        }
-        else if(State == state.TurnE)
-        {
-            NextState = state.TurnF;
-            curPlayer = CharacterE;
-        }
-        else if(State == state.TurnF)
-        {
-            NextState = state.TurnA;
-            curPlayer = CharacterF;
-        }
-        //Debug.Log(State);
     }
 }
