@@ -60,6 +60,8 @@ public class CharacterMovement : MonoBehaviour
                     if (hit.collider.tag == "Basket"){
                         Debug.Log("shoot shot");
                         this.hasBall = false;
+                        //Debug.Log(hasBall);
+                        this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
                         takenTurn = true;
                         return;
                     }
@@ -192,9 +194,9 @@ public class CharacterMovement : MonoBehaviour
             hasBall = true;
         } 
 
-        if (hasBall){
+        if (this.hasBall){
             this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
-        } else {
+        } else if(this.hasBall == false) {
             this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
         }
 
