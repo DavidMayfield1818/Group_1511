@@ -11,12 +11,18 @@ public class UIManager : MonoBehaviour
     public Text scoreTextLeft;
     public Text scoreTextRight;
     public Text turnsLeft;
+
+    public int team1Score = 0;
+    public int team2Score =0;
+
+    public int turnsTally = 40;
     //true means its team1's turn, false means its team2's turn
  
     private static UIManager instance;
     
     private void Awake(){
         instance = this; 
+        setTurnIndicator(false);
         //used to test UI
         // updateScoreText(true, 4);
         // updateTurnsLeft(39);
@@ -28,16 +34,19 @@ public class UIManager : MonoBehaviour
 
     private void updateScoreText(bool isTeam1, int score){
         if(isTeam1){
-            scoreTextLeft.text = score.ToString();
+            team1Score += score;
+            scoreTextLeft.text = team1Score.ToString();
         }
         else{
-            scoreTextRight.text = score.ToString();
+            team2Score += score;
+            scoreTextRight.text = team2Score.ToString();
         }
 
     }
 
-    private void updateTurnsLeft(int turns){
-        turnsLeft.text = turns.ToString();
+    private void updateTurnsLeft(){
+        turnsTally -= 1;
+        turnsLeft.text = turnsTally.ToString();
     }
 
     
@@ -61,8 +70,8 @@ public class UIManager : MonoBehaviour
     /*
     * Updates the turn counter with a specific number (int turns) 
     */
-    public static void updateTurnsLeft_Static(int turns){
-        instance.updateTurnsLeft(turns);
+    public static void updateTurnsLeft_Static(){
+        instance.updateTurnsLeft();
     }
 
     /*

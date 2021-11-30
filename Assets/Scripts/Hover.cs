@@ -16,6 +16,7 @@ public class Hover : MonoBehaviour
         text.SetActive(true);
         background.SetActive(true);
         PercentHover.ShowHover_Static(90);
+        
     }
 
     public void OnMouseExit(){

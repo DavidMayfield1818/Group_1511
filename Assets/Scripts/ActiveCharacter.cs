@@ -19,6 +19,7 @@ public class ActiveCharacter : MonoBehaviour
     // blue or red
     public float Turn = 1;
 
+
     private CharacterMovement curPlayer = null;
 
     private enum state{
@@ -54,6 +55,8 @@ public class ActiveCharacter : MonoBehaviour
             mouseInput.Enable();
             if(CharacterA.takenTurn && CharacterB.takenTurn && CharacterC.takenTurn){
                 Turn = 2;
+                UIManager.setTurnIndicator_Static(true);
+                UIManager.updateTurnsLeft_Static();
                 CharacterA.takenTurn = false;
                 CharacterB.takenTurn = false;
                 CharacterC.takenTurn = false;
@@ -61,6 +64,8 @@ public class ActiveCharacter : MonoBehaviour
 
             if(CharacterD.takenTurn && CharacterE.takenTurn && CharacterF.takenTurn){
                 Turn = 1;
+                UIManager.setTurnIndicator_Static(false);
+                UIManager.updateTurnsLeft_Static();
                 CharacterD.takenTurn = false;
                 CharacterE.takenTurn = false;
                 CharacterF.takenTurn = false;
@@ -144,10 +149,12 @@ public class ActiveCharacter : MonoBehaviour
         if(team == 1)
         {
             // update blue ui with score
+            UIManager.updateScoreText_Static(false, (int)score );
         }
         else
         {
             // update red ui with score
+            UIManager.updateScoreText_Static(true, (int)score );
         }
         CharacterA.gotospawn();
         CharacterB.gotospawn();
@@ -155,9 +162,11 @@ public class ActiveCharacter : MonoBehaviour
         CharacterD.gotospawn();
         CharacterE.gotospawn();
         CharacterF.gotospawn();
+        UIManager.updateTurnsLeft_Static();
         if(team == 1)
         {
             Turn = 2;
+            UIManager.setTurnIndicator_Static(true);
             CharacterE.hasBall = true;
             CharacterA.takenTurn = false;
             CharacterB.takenTurn = false;
@@ -166,6 +175,7 @@ public class ActiveCharacter : MonoBehaviour
         else
         {
             Turn = 1;
+            UIManager.setTurnIndicator_Static(false);
             CharacterA.hasBall = true;
             CharacterD.takenTurn = false;
             CharacterE.takenTurn = false;

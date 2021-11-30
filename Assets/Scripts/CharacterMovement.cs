@@ -201,9 +201,6 @@ public class CharacterMovement : MonoBehaviour
             return false; 
         }
     }
-    private void shotPercentage(){
-
-    }
 
     public void gotospawn(){
         Vector3Int gridPos = map.WorldToCell(spawn.transform.position);

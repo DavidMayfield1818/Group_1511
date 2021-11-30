@@ -21,8 +21,8 @@ public class PercentHover : MonoBehaviour
         gameObject.SetActive(true);
 
         hoverText.text =  "Shot Chance: " + shotPercent.ToString();
-        Vector2 backgroundSize = new Vector2(hoverText.preferredWidth + textPadding *2f, hoverText.preferredHeight + textPadding *2f);
-        backgroundRectTransform.sizeDelta = backgroundSize;
+        // Vector2 backgroundSize = new Vector2(hoverText.preferredWidth + textPadding *2f, hoverText.preferredHeight + textPadding *2f);
+        // backgroundRectTransform.sizeDelta = backgroundSize;
     }
 
     private void HideHover(){
