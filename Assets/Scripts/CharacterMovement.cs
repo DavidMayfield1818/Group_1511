@@ -133,26 +133,20 @@ public class CharacterMovement : MonoBehaviour
         // if this player is one tile from enemyPlayer
         // var enemyDistance = Vector3.Distance(transform.position, enemyPlayer1.transform.position);
 
-        //
-        // if (enemyDistance < 1.5f){
-            // if (stealUsed == true){
-            //     Debug.Log("cannot steal");
-            //     return false;
-            // }
-
             int randVal;
             randVal = Random.Range(0, 100);
             if (randVal < 30){
                 //this player has possession of the ball
                 Debug.Log("stolen");
+                takenTurn = true;
                 return true;
 
             }
             else {
                 Debug.Log("failed to steal");
+                takenTurn = true;
                 return false;
             }
-            // stealUsed = true;
         // }
     }
 
