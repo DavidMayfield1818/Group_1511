@@ -22,7 +22,8 @@ public class CharacterMovement : MonoBehaviour
 
     // public bool blueTeam;
 
-    public Transform hoop; 
+    public Transform hoop;
+    public Rebound hoopRebound;
     // public GameObject playerClass;  
 
 
@@ -65,7 +66,7 @@ public class CharacterMovement : MonoBehaviour
                         //Debug.Log(hasBall);
                         this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
                         takenTurn = true;
-                        bool success = true;
+                        bool success = false;
                         var hoopDistance = Vector3.Distance(transform.position, hoop.position);
                         if(success)
                         {
@@ -80,7 +81,7 @@ public class CharacterMovement : MonoBehaviour
                         }
                         else
                         {
-                            // rebound
+                            hoopRebound.Calculate();
                         }
 
 
