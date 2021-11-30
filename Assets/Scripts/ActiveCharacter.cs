@@ -74,29 +74,8 @@ public class ActiveCharacter : MonoBehaviour
             mouseInput.Disable();
             if(CheckTaken(curPlayer))
             {
-                
                 Deactivate(curPlayer);
                 curPlayer = null;
-
-                // will add this once player selection is done
-                // curPlayer = null;
-
-                //reset hasMoved variable
-                /*
-                switch(gameObject.tag){
-                    case guard:
-                        Guard.hasMoved = false;
-                        break;
-                    case forward:
-                        Forward.hasMoved = false;
-                        break;
-                    case center:
-                        Center.hasMoved = false;
-                        break;    
-                }*/
-
-                //updateState(NextState); // will remove this once player selection is implemented
-                //Activate(curPlayer);    // will remove this once player selection is implemented
             }
         } 
 
@@ -143,12 +122,20 @@ public class ActiveCharacter : MonoBehaviour
         {
             Turn = 2;
             CharacterE.hasBall = true;
+            CharacterA.takenTurn = false;
+            CharacterB.takenTurn = false;
+            CharacterC.takenTurn = false;
         }
         else
         {
             Turn = 1;
             CharacterA.hasBall = true;
+            CharacterD.takenTurn = false;
+            CharacterE.takenTurn = false;
+            CharacterF.takenTurn = false;
         }
+        Deactivate(curPlayer);
+        curPlayer = null;
     }
 
     private void MouseClick() {
