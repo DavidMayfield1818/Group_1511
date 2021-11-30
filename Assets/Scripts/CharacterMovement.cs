@@ -66,21 +66,25 @@ public class CharacterMovement : MonoBehaviour
                         //Debug.Log(hasBall);
                         this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
                         takenTurn = true;
-                        bool success = false;
                         var hoopDistance = Vector3.Distance(transform.position, hoop.position);
-                        if(success)
+                        var rng = Random.Range(0,100);
+                        var toBeat = GameControls.calcShot(this);
+                        Debug.Log("Rolling: "+(rng+10)+">"+toBeat);
+                        if(rng+10>toBeat)
                         {
                             float score = 2;
                             if(hoopDistance > 3)
                             {
                                 score = 3;
                             }
+                            Debug.Log("GOAL: "+score);
                             // reset the area
                             GameControls.goal(team, score);
 
                         }
                         else
                         {
+                            Debug.Log("Rebound");
                             hoopRebound.Calculate();
                         }
 

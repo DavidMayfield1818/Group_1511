@@ -101,6 +101,43 @@ public class ActiveCharacter : MonoBehaviour
     public CharacterMovement getActiveCharacter(){
         return curPlayer;
     }
+    public float calcShot(CharacterMovement shooter){
+        float retVal;
+        var hoopDistance = Vector3.Distance(shooter.transform.position, shooter.hoop.position);
+        retVal = (hoopDistance/6f)*100f;
+        if(shooter.team == 1)
+        {
+            if(Vector3.Distance(shooter.transform.position, CharacterD.transform.position)<1.3)
+            {
+                retVal += 10;
+            }
+            if(Vector3.Distance(shooter.transform.position, CharacterE.transform.position)<1.3)
+            {
+                retVal += 10;
+            }
+            if(Vector3.Distance(shooter.transform.position, CharacterF.transform.position)<1.3)
+            {
+                retVal += 10;
+            }
+        }
+        else
+        {
+            if(Vector3.Distance(shooter.transform.position, CharacterA.transform.position)<1.3)
+            {
+                retVal += 10;
+            }
+            if(Vector3.Distance(shooter.transform.position, CharacterB.transform.position)<1.3)
+            {
+                retVal += 10;
+            }
+            if(Vector3.Distance(shooter.transform.position, CharacterC.transform.position)<1.3)
+            {
+                retVal += 10;
+            }
+        }
+
+        return retVal;
+    }
 
     public void goal(float team,float score){
         // update ui here
