@@ -106,7 +106,13 @@ public class CharacterMovement : MonoBehaviour
                 Debug.Log("clicked to move");
                 // make sure we are clicking the cell
                 Vector3Int gridPos = map.WorldToCell(mousePos);
+                if (map.GetCellCenterWorld(gridPos).y > 4){
+                    //destination = map.GetCellCenterWorld(gridPos);
+                    Debug.Log("out of bounds");
+                    return;
+                }
                 destination = map.GetCellCenterWorld(gridPos);
+                //Debug.Log(destination);
             }
             
             
