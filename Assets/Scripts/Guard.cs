@@ -66,7 +66,7 @@ public class Guard : MonoBehaviour
             shotChance = baseShotChance;
         }
         else {
-            while(hoopDistance > 0.9f){
+            while(hoopDistance > 0.9f){ //dumb way to basically just see how many full tiles away the shooter is from the hoop
                 hoopDistance -= 1.0f;
                 shotChance = shotChance - 15;
             }
