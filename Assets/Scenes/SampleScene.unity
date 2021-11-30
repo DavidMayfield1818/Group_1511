@@ -905,6 +905,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &287862331
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 287862326}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23344ff20bc54c49a359d8c7d9c7023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameControls: {fileID: 721897057}
 --- !u!1 &297752495
 GameObject:
   m_ObjectHideFlags: 0
@@ -1402,7 +1415,9 @@ MonoBehaviour:
   team: 1
   spawn: {fileID: 1939073899}
   GameControls: {fileID: 721897057}
+  active: 0
   hoop: {fileID: 2071961877}
+  hoopRebound: {fileID: 287862331}
 --- !u!50 &549900406
 Rigidbody2D:
   serializedVersion: 4
@@ -1603,7 +1618,9 @@ MonoBehaviour:
   team: 1
   spawn: {fileID: 795061352}
   GameControls: {fileID: 721897057}
+  active: 0
   hoop: {fileID: 2071961877}
+  hoopRebound: {fileID: 287862331}
 --- !u!50 &708202317
 Rigidbody2D:
   serializedVersion: 4
@@ -1873,12 +1890,7 @@ MonoBehaviour:
   CharacterD: {fileID: 2087999632}
   CharacterE: {fileID: 2036461239}
   CharacterF: {fileID: 1736131476}
-  OutlineA: {fileID: 1015716624}
-  OutlineB: {fileID: 100235567}
-  OutlineC: {fileID: 1992252648}
-  OutlineD: {fileID: 860766953}
-  OutlineE: {fileID: 176123757}
-  OutlineF: {fileID: 1223335586}
+  Turn: 1
 --- !u!4 &721897058
 Transform:
   m_ObjectHideFlags: 0
@@ -3356,6 +3368,19 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1222214363
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1222214358}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f23344ff20bc54c49a359d8c7d9c7023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  GameControls: {fileID: 721897057}
 --- !u!1 &1223335584
 GameObject:
   m_ObjectHideFlags: 0
@@ -3828,7 +3853,9 @@ MonoBehaviour:
   team: 1
   spawn: {fileID: 1366296029}
   GameControls: {fileID: 721897057}
+  active: 0
   hoop: {fileID: 2071961877}
+  hoopRebound: {fileID: 287862331}
 --- !u!50 &1558457789
 Rigidbody2D:
   serializedVersion: 4
@@ -4173,7 +4200,9 @@ MonoBehaviour:
   team: 2
   spawn: {fileID: 651661867}
   GameControls: {fileID: 721897057}
+  active: 0
   hoop: {fileID: 814664237}
+  hoopRebound: {fileID: 1222214363}
 --- !u!70 &1736131477
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -4875,7 +4904,9 @@ MonoBehaviour:
   team: 2
   spawn: {fileID: 297752495}
   GameControls: {fileID: 721897057}
+  active: 0
   hoop: {fileID: 814664237}
+  hoopRebound: {fileID: 1222214363}
 --- !u!70 &2036461240
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
@@ -5201,7 +5232,9 @@ MonoBehaviour:
   team: 2
   spawn: {fileID: 1283720748}
   GameControls: {fileID: 721897057}
+  active: 0
   hoop: {fileID: 814664237}
+  hoopRebound: {fileID: 1222214363}
 --- !u!70 &2087999633
 CapsuleCollider2D:
   m_ObjectHideFlags: 0
