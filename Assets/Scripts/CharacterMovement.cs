@@ -61,14 +61,19 @@ public class CharacterMovement : MonoBehaviour
                     this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
                     Debug.Log("clicked player");
                 }
-                else {
-                    if (steal()){
+                else { //needs to test distance, if enemy team, and if enemy player has ball
+                    var targetDistance = Vector3.Distance(transform.position, hit.transform.position);
+                    if (targetDistance < 1.5f){
+                        if (steal()){
                         this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
                         hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
                         // hit.hasBall = false;
                     }
+                    }
+                    
                 }
 
+                // Debug.Log(enemyDistance);
 
                 //hasBall = true;
             }
