@@ -2084,6 +2084,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: hoopRight
       objectReference: {fileID: 0}
+    - target: {fileID: 3178758399722307367, guid: 986041f6c5b3b4ef1a1656ac63980038, type: 3}
+      propertyPath: m_TagString
+      value: Basket
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 986041f6c5b3b4ef1a1656ac63980038, type: 3}
 --- !u!4 &814664237 stripped
@@ -4917,6 +4921,10 @@ PrefabInstance:
     - target: {fileID: 3178758399722307367, guid: 986041f6c5b3b4ef1a1656ac63980038, type: 3}
       propertyPath: m_Name
       value: hoopLeft
+      objectReference: {fileID: 0}
+    - target: {fileID: 3178758399722307367, guid: 986041f6c5b3b4ef1a1656ac63980038, type: 3}
+      propertyPath: m_TagString
+      value: Basket
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 986041f6c5b3b4ef1a1656ac63980038, type: 3}
