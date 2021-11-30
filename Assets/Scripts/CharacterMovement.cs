@@ -62,7 +62,11 @@ public class CharacterMovement : MonoBehaviour
                     Debug.Log("clicked player");
                 }
                 else {
-                    steal();
+                    if (steal()){
+                        this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
+                        hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
+                        // hit.hasBall = false;
+                    }
                 }
 
 
@@ -104,7 +108,7 @@ public class CharacterMovement : MonoBehaviour
         
     }
 
-    public void steal(){
+    public bool steal(){
         // if this player is one tile from enemyPlayer
         // var enemyDistance = Vector3.Distance(transform.position, enemyPlayer1.transform.position);
 
@@ -115,10 +119,12 @@ public class CharacterMovement : MonoBehaviour
             if (randVal < 30){
                 //this player has possession of the ball
                 Debug.Log("stolen");
-                hasBall = true;
+                return true;
+
             }
             else {
                 Debug.Log("failed to steal");
+                return false;
             }
         // }
     }
