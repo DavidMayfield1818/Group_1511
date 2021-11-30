@@ -16,6 +16,8 @@ public class CharacterMovement : MonoBehaviour
     public GameObject spawn;
     public ActiveCharacter GameControls;
     public bool active = false;
+    public GameObject foundSquare;
+    public Animator animate;
 
     // public bool stealUsed = false;
     // public float enemyTeam;
@@ -24,7 +26,7 @@ public class CharacterMovement : MonoBehaviour
 
     public Transform hoop;
     public Rebound hoopRebound;
-    // public GameObject playerClass;  
+    // public GameObject playerClass;
 
 
     private void Awake() {
@@ -47,6 +49,7 @@ public class CharacterMovement : MonoBehaviour
         //this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
         destination = transform.position;
         mouseInput.Mouse.MouseClick.performed += _ => MouseClick();
+        foundSquare = GameObject.Find("Square");
     }
 
     private void MouseClick() {
@@ -57,7 +60,7 @@ public class CharacterMovement : MonoBehaviour
             mousePos = Camera.main.ScreenToWorldPoint(mousePos);
             Vector2 mousePos2D = new Vector2(mousePos.x, mousePos.y);
             RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
-            // hit.collider store rigidbody and gameobject clicked 
+            // hit.collider store rigidbody and gameobject clicked
             if (hit.collider != null){
                 if(hasBall){
                     if (hit.collider.tag == "Basket"){
@@ -75,7 +78,13 @@ public class CharacterMovement : MonoBehaviour
                             float score = 2;
                             if(hoopDistance > 3)
                             {
+                                animate.SetFloat("shooting", 2);
+                                foundSquare.transform.position = new Vector3(0, -1, -9);
                                 score = 3;
+                            }
+                            else {
+                              animate.SetFloat("shooting", 0);
+                              foundSquare.transform.position = new Vector3(0, -1, -9);
                             }
                             Debug.Log("GOAL: "+score);
                             // reset the area
@@ -84,6 +93,8 @@ public class CharacterMovement : MonoBehaviour
                         }
                         else
                         {
+                            animate.SetBool("missedShot", true);
+                            foundSquare.transform.position = new Vector3(0, -1, -9);
                             Debug.Log("Rebound");
                             hoopRebound.Calculate();
                         }
@@ -95,11 +106,14 @@ public class CharacterMovement : MonoBehaviour
                     //Debug.Log(hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder);
                     this.hasBall = false;
                     if (hit.transform != this.gameObject.transform){
+
+                        animate.SetBool("passing", true);
+                        foundSquare.transform.position = new Vector3(0, -1, -9);
                         this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
                         Debug.Log("passed the ball");
                         return;
                     }
-                    
+
                     Debug.Log("clicked on self");
                     return;
                 }
@@ -119,7 +133,7 @@ public class CharacterMovement : MonoBehaviour
                             hit.transform.GetComponent<CharacterMovement>().hasBall = false;
                         }
                     }
-                    
+
                 }
 
                 // Debug.Log(enemyDistance);
@@ -140,9 +154,9 @@ public class CharacterMovement : MonoBehaviour
                 destination = map.GetCellCenterWorld(gridPos);
                 //Debug.Log(destination);
             }
-            
-            
-            
+
+
+
             //change the hasMoved variable to true
             /*
             switch(gameObject.tag){
@@ -154,9 +168,9 @@ public class CharacterMovement : MonoBehaviour
                     break;
                 case center:
                     Center.hasMoved = true;
-                    break;    
+                    break;
             }*/
-            
+
             if (Vector3.Distance(transform.position, destination) > 0.1f && Vector3.Distance(transform.position, destination) < 3.5f){
                 takenTurn = true;
 
@@ -166,7 +180,7 @@ public class CharacterMovement : MonoBehaviour
             // stealUsed = false;
 
         }
-        
+
     }
 
     public bool steal(){
@@ -198,7 +212,7 @@ public class CharacterMovement : MonoBehaviour
             return true;
         }
         else{
-            return false; 
+            return false;
         }
     }
 
@@ -211,11 +225,12 @@ public class CharacterMovement : MonoBehaviour
     // Update is called once per frame
     void Update()
     {
+        animate = foundSquare.GetComponent<Animator>();
         if (Vector3.Distance(transform.position, destination) > 0.1f && Vector3.Distance(transform.position, destination) < 3.5f){
             // check if destination has a unit on the tile already before moving
             transform.position = Vector3.MoveTowards(transform.position, destination, moveSpeed * Time.deltaTime);
             // print(canShoot());
-            
+
         }
         if (curTurn){
             this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
@@ -232,7 +247,7 @@ public class CharacterMovement : MonoBehaviour
 
         if (this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder == 0){
             hasBall = true;
-        } 
+        }
 
         if (this.hasBall){
             this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
