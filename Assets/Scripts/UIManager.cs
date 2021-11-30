@@ -8,6 +8,8 @@ public class UIManager : MonoBehaviour
     // Start is called before the first frame update
     public GameObject turnIndicatorR;
     public GameObject turnIndicatorL;
+    public GameObject teamNameRed;
+    public GameObject teamNameBlue;
     public Text scoreTextLeft;
     public Text scoreTextRight;
     public Text turnsLeft;
@@ -54,10 +56,14 @@ public class UIManager : MonoBehaviour
         if(isTeam1){
             turnIndicatorR.SetActive(false);
             turnIndicatorL.SetActive(true);
+            teamNameRed.GetComponent<Text>().color = Color.red;
+            teamNameBlue.GetComponent<Text>().color = Color.white;
         }
         else{
             turnIndicatorR.SetActive(true);
             turnIndicatorL.SetActive(false);
+            teamNameRed.GetComponent<Text>().color = Color.white;
+            teamNameBlue.GetComponent<Text>().color = Color.blue;
         }
     }
     /*
