@@ -13,6 +13,8 @@ public class CharacterMovement : MonoBehaviour
     public bool hasBall = false;
     [SerializeField] private float moveSpeed = 5.0f;
     public float team;
+
+    // public bool stealUsed = false;
     // public float enemyTeam;
 
     // public bool blueTeam;
@@ -63,7 +65,9 @@ public class CharacterMovement : MonoBehaviour
                 }
                 else { //stealing test if enemy team, and if enemy player has ball, turn off enemy player having ball
                     var targetDistance = Vector3.Distance(transform.position, hit.transform.position);
-                    if (targetDistance < 1.5f){
+                    var targetHasBall = hit.transform.GetComponent<CharacterMovement>().hasBall;
+
+                    if (targetDistance < 1.5f && targetHasBall){
                         if (steal()){
                             this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
                             hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
@@ -108,7 +112,8 @@ public class CharacterMovement : MonoBehaviour
 
             }
 
-
+            //reset steal variable
+            // stealUsed = false;
 
         }
         
@@ -120,6 +125,11 @@ public class CharacterMovement : MonoBehaviour
 
         //
         // if (enemyDistance < 1.5f){
+            // if (stealUsed == true){
+            //     Debug.Log("cannot steal");
+            //     return false;
+            // }
+
             int randVal;
             randVal = Random.Range(0, 100);
             if (randVal < 30){
@@ -132,6 +142,7 @@ public class CharacterMovement : MonoBehaviour
                 Debug.Log("failed to steal");
                 return false;
             }
+            // stealUsed = true;
         // }
     }
 
