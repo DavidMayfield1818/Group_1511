@@ -57,13 +57,23 @@ public class CharacterMovement : MonoBehaviour
             // hit.collider store rigidbody and gameobject clicked 
             if (hit.collider != null){
                 if(hasBall){
+                    if (hit.collider.tag == "Basket"){
+                        Debug.Log("shoot shot");
+                        this.hasBall = false;
+                        takenTurn = true;
+                        return;
+                    }
                     hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
-                    Debug.Log(hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder);
+                    //Debug.Log(hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder);
                     this.hasBall = false;
                     this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
-                    Debug.Log("clicked player");
+                    Debug.Log("passed the ball");
                 }
                 else { //stealing test if enemy team, and if enemy player has ball, turn off enemy player having ball
+                    if (hit.collider.tag == "Basket"){
+                        Debug.Log("You dont have the ball!");
+                        return;
+                    }
                     var targetDistance = Vector3.Distance(transform.position, hit.transform.position);
                     var targetHasBall = hit.transform.GetComponent<CharacterMovement>().hasBall;
 
