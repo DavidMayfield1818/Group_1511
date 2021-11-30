@@ -131,6 +131,10 @@ public class ActiveCharacter : MonoBehaviour
         RaycastHit2D hit = Physics2D.Raycast(mousePos2D, Vector2.zero);
         // hit.collider store rigidbody and gameobject clicked 
         if (hit.collider != null){
+            if (hit.collider.tag == "Basket"){
+                Debug.Log("Shoot at basket");
+                return;
+            }
             if(hit.transform.GetComponent<CharacterMovement>().team == Turn){
                 //Debug.Log("correct team");
                 if(!hit.transform.GetComponent<CharacterMovement>().takenTurn)
