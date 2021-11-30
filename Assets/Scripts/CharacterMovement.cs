@@ -64,10 +64,10 @@ public class CharacterMovement : MonoBehaviour
                         return;
                     }
                     hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
-                    Debug.Log(hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder);
+                    //Debug.Log(hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder);
                     this.hasBall = false;
                     this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
-                    Debug.Log("clicked player");
+                    Debug.Log("passed the ball");
                 }
                 else { //stealing test if enemy team, and if enemy player has ball, turn off enemy player having ball
                     if (hit.collider.tag == "Basket"){
