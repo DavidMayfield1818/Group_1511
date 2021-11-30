@@ -85,7 +85,7 @@ public class CharacterMovement : MonoBehaviour
                     var targetDistance = Vector3.Distance(transform.position, hit.transform.position);
                     var targetHasBall = hit.transform.GetComponent<CharacterMovement>().hasBall;
 
-                    if (targetDistance < 1.5f && targetHasBall){
+                    if (targetDistance < 1.5f && targetHasBall && (hit.collider.tag != this.gameObject.tag)){
                         if (steal()){
                             this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
                             hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
