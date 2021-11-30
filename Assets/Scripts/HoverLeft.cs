@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class Hover : MonoBehaviour
+public class HoverLeft : MonoBehaviour
 {
     // Start is called before the first frame update
       public GameObject text;
@@ -29,7 +29,7 @@ public class Hover : MonoBehaviour
             // print("Chance to go in is: " + percent);
             text.SetActive(true);
             background.SetActive(true);
-            PercentHover.ShowHover_Static(percent);
+            PercentHoverLeft.ShowHover_Static(percent);
         }
         
         

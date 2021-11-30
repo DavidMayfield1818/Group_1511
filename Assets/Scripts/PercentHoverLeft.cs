@@ -2,9 +2,9 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-public class PercentHover : MonoBehaviour
+public class PercentHoverLeft : MonoBehaviour
 {
-    private static PercentHover instance;
+     private static PercentHoverLeft instance;
     private Text hoverText;
     private RectTransform backgroundRectTransform;
     
@@ -12,14 +12,13 @@ public class PercentHover : MonoBehaviour
     // Start is called before the first frame update
     private void Awake() {
         instance = this;
-        backgroundRectTransform = transform.Find("background").GetComponent<RectTransform>();
-        hoverText = transform.Find("text").GetComponent<Text>();
+        backgroundRectTransform = transform.Find("backgroundLeft").GetComponent<RectTransform>();
+        hoverText = transform.Find("textLeft").GetComponent<Text>();
         
     }
     private void ShowHover(int shotPercent){
         gameObject.SetActive(true);
-        hoverText.text =  "Shot Chance: " + shotPercent.ToString() + "%";
-        // hoverText.text = shotPercent.ToString();
+        hoverText.text =  "Shot Chance: " + shotPercent.ToString() + "%";        
         // print("this was called + " + shotPercent.ToString());
     }
 
