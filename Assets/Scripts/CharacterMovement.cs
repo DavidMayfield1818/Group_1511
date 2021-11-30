@@ -13,6 +13,9 @@ public class CharacterMovement : MonoBehaviour
     public bool hasBall = false;
     [SerializeField] private float moveSpeed = 5.0f;
     public float team;
+    public GameObject spawn;
+    public ActiveCharacter GameControls;
+    public bool active = false;
 
     // public bool stealUsed = false;
     // public float enemyTeam;
@@ -25,8 +28,7 @@ public class CharacterMovement : MonoBehaviour
 
     private void Awake() {
         mouseInput = new MouseInput();
-        
-        
+        gotospawn();
     }
 
     private void OnEnable(){
@@ -63,6 +65,25 @@ public class CharacterMovement : MonoBehaviour
                         //Debug.Log(hasBall);
                         this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
                         takenTurn = true;
+                        bool success = true;
+                        var hoopDistance = Vector3.Distance(transform.position, hoop.position);
+                        if(success)
+                        {
+                            float score = 2;
+                            if(hoopDistance > 3)
+                            {
+                                score = 3;
+                            }
+                            // reset the area
+                            GameControls.goal(team, score);
+
+                        }
+                        else
+                        {
+                            // rebound
+                        }
+
+
                         return;
                     }
                     hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
@@ -179,6 +200,12 @@ public class CharacterMovement : MonoBehaviour
 
     }
 
+    public void gotospawn(){
+        Vector3Int gridPos = map.WorldToCell(spawn.transform.position);
+        destination = map.GetCellCenterWorld(gridPos);
+        this.transform.position = destination;
+    }
+
     // Update is called once per frame
     void Update()
     {
@@ -189,11 +216,16 @@ public class CharacterMovement : MonoBehaviour
             
         }
         if (curTurn){
-            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
             this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = true;
         } else {
-            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
             this.gameObject.transform.GetChild(3).GetComponent<SpriteRenderer>().enabled = false;
+        }
+
+        if(!takenTurn && GameControls.Turn == this.team){
+            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
+        }
+        else{
+            this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = false;
         }
 
         if (this.gameObject.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder == 0){

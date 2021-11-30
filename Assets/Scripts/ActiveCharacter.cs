@@ -16,7 +16,8 @@ public class ActiveCharacter : MonoBehaviour
     private state State;
     private state NextState;
 
-    private float Turn = 1;
+    // blue or red
+    public float Turn = 1;
 
     private CharacterMovement curPlayer = null;
 
@@ -40,7 +41,7 @@ public class ActiveCharacter : MonoBehaviour
         // will remove this once selection is done
         // updateState(state.TurnA);
         // Activate(curPlayer);
-        CharacterC.hasBall = true;
+        CharacterA.hasBall = true;
         
     }
 
@@ -122,7 +123,34 @@ public class ActiveCharacter : MonoBehaviour
         return curPlayer;
     }
 
-    
+    public void goal(float team,float score){
+        // update ui here
+        if(team == 1)
+        {
+            // update blue ui with score
+        }
+        else
+        {
+            // update red ui with score
+        }
+        CharacterA.gotospawn();
+        CharacterB.gotospawn();
+        CharacterC.gotospawn();
+        CharacterD.gotospawn();
+        CharacterE.gotospawn();
+        CharacterF.gotospawn();
+        if(team == 1)
+        {
+            Turn = 2;
+            CharacterE.hasBall = true;
+        }
+        else
+        {
+            Turn = 1;
+            CharacterA.hasBall = true;
+        }
+    }
+
     private void MouseClick() {
         //this.gameObject.transform.GetChild(0).GetComponent<SpriteRenderer>().enabled = true;
         Vector2 mousePos = (mouseInput.Mouse.MousePosition.ReadValue<Vector2>());

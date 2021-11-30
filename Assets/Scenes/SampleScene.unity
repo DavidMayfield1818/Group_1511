@@ -729,6 +729,12 @@ Transform:
   - {fileID: 721897058}
   - {fileID: 1807888425}
   - {fileID: 1884907093}
+  - {fileID: 1939073900}
+  - {fileID: 1366296030}
+  - {fileID: 795061353}
+  - {fileID: 1283720749}
+  - {fileID: 297752496}
+  - {fileID: 651661868}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -899,6 +905,36 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!1 &297752495
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 297752496}
+  m_Layer: 0
+  m_Name: Espawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &297752496
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 297752495}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -3.5, y: -1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 226012508}
+  m_RootOrder: 18
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &299803529
 GameObject:
   m_ObjectHideFlags: 0
@@ -1364,6 +1400,8 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 1
+  spawn: {fileID: 1939073899}
+  GameControls: {fileID: 721897057}
   hoop: {fileID: 2071961877}
 --- !u!50 &549900406
 Rigidbody2D:
@@ -1494,6 +1532,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &651661867
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 651661868}
+  m_Layer: 0
+  m_Name: Fspawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &651661868
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 651661867}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 226012508}
+  m_RootOrder: 19
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &708202315
 GameObject:
   m_ObjectHideFlags: 0
@@ -1533,6 +1601,8 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 1
+  spawn: {fileID: 795061352}
+  GameControls: {fileID: 721897057}
   hoop: {fileID: 2071961877}
 --- !u!50 &708202317
 Rigidbody2D:
@@ -1803,6 +1873,12 @@ MonoBehaviour:
   CharacterD: {fileID: 2087999632}
   CharacterE: {fileID: 2036461239}
   CharacterF: {fileID: 1736131476}
+  OutlineA: {fileID: 1015716624}
+  OutlineB: {fileID: 100235567}
+  OutlineC: {fileID: 1992252648}
+  OutlineD: {fileID: 860766953}
+  OutlineE: {fileID: 176123757}
+  OutlineF: {fileID: 1223335586}
 --- !u!4 &721897058
 Transform:
   m_ObjectHideFlags: 0
@@ -2024,6 +2100,36 @@ Transform:
   - {fileID: 985570329}
   m_Father: {fileID: 226012508}
   m_RootOrder: 3
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &795061352
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 795061353}
+  m_Layer: 0
+  m_Name: Cspawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &795061353
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 795061352}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5, y: 1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 226012508}
+  m_RootOrder: 16
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1001 &814664236
 PrefabInstance:
@@ -3493,6 +3599,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1283720748
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1283720749}
+  m_Layer: 0
+  m_Name: Dspawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1283720749
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1283720748}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: -1.5, y: -4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 226012508}
+  m_RootOrder: 17
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1348367230
 GameObject:
   m_ObjectHideFlags: 0
@@ -3575,6 +3711,36 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!1 &1366296029
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1366296030}
+  m_Layer: 0
+  m_Name: Bspawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1366296030
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1366296029}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 1.5, y: -4.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 226012508}
+  m_RootOrder: 15
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1524577614
 GameObject:
   m_ObjectHideFlags: 0
@@ -3660,6 +3826,8 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 1
+  spawn: {fileID: 1366296029}
+  GameControls: {fileID: 721897057}
   hoop: {fileID: 2071961877}
 --- !u!50 &1558457789
 Rigidbody2D:
@@ -4003,6 +4171,8 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 2
+  spawn: {fileID: 651661867}
+  GameControls: {fileID: 721897057}
   hoop: {fileID: 814664237}
 --- !u!70 &1736131477
 CapsuleCollider2D:
@@ -4367,6 +4537,36 @@ Transform:
   m_Father: {fileID: 226012508}
   m_RootOrder: 13
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!1 &1939073899
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 1939073900}
+  m_Layer: 0
+  m_Name: Aspawn
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &1939073900
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1939073899}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 3.5, y: -1.5, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 226012508}
+  m_RootOrder: 14
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &1945815587
 GameObject:
   m_ObjectHideFlags: 0
@@ -4673,6 +4873,8 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 2
+  spawn: {fileID: 297752495}
+  GameControls: {fileID: 721897057}
   hoop: {fileID: 814664237}
 --- !u!70 &2036461240
 CapsuleCollider2D:
@@ -4874,6 +5076,10 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 226012508}
     m_Modifications:
+    - target: {fileID: 1001226284761563420, guid: 986041f6c5b3b4ef1a1656ac63980038, type: 3}
+      propertyPath: m_SortingOrder
+      value: 1000
+      objectReference: {fileID: 0}
     - target: {fileID: 2128516730040020651, guid: 986041f6c5b3b4ef1a1656ac63980038, type: 3}
       propertyPath: m_RootOrder
       value: 2
@@ -4993,6 +5199,8 @@ MonoBehaviour:
   hasBall: 0
   moveSpeed: 5
   team: 2
+  spawn: {fileID: 1283720748}
+  GameControls: {fileID: 721897057}
   hoop: {fileID: 814664237}
 --- !u!70 &2087999633
 CapsuleCollider2D:
