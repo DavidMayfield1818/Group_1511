@@ -66,8 +66,14 @@ public class CharacterMovement : MonoBehaviour
                     hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = 0;
                     //Debug.Log(hit.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder);
                     this.hasBall = false;
-                    this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
-                    Debug.Log("passed the ball");
+                    if (hit.transform != this.gameObject.transform){
+                        this.transform.GetChild(1).GetComponent<SpriteRenderer>().sortingOrder = -4;
+                        Debug.Log("passed the ball");
+                        return;
+                    }
+                    
+                    Debug.Log("clicked on self");
+                    return;
                 }
                 else { //stealing test if enemy team, and if enemy player has ball, turn off enemy player having ball
                     if (hit.collider.tag == "Basket"){
